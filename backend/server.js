@@ -13,7 +13,7 @@ const normalizePort = val => {
   }
   return false;
 };
-const port = normalizePort(process.env.PORT || '3306');
+const port = normalizePort('8080');
 app.set('port', port, console.log('Serveur en écoute ;)'));
 
 const errorHandler = error => {

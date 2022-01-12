@@ -46,7 +46,6 @@
             email: '',
             emailRules: [
                 v => !!v || 'E-mail is required',
-                v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
             ],
             password: '',
             passwordRules: [
@@ -58,7 +57,7 @@
     methods: {
       validate () {
         let user = {email: this.email, password: this.password, username: this.username}
-        fetch("http://localhost:3306/api/users/Signup", {
+        fetch("http://localhost:8080/api/users/Signup", {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

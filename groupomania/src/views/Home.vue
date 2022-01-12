@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <h1>Groupomania</h1>
-    <Signup/>
+    <div>
+      <Signup/>
+    </div>
   </div>
 </template>
 

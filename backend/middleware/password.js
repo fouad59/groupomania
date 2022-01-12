@@ -16,6 +16,7 @@ schemaPassword
 .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist de mot de passe
 
 module.exports = (req, res, next) => {
+    console.log('titi')
     if(schemaPassword.validate(req.body.password)){
         return next();
     }else{

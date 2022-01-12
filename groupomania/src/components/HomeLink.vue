@@ -1,13 +1,12 @@
 // ./components/HomeLink.vue
 <script>
 export default {
-	name: 'HomeLink'
+	name: 'HomeLink',
+	props: {
+		msg: String
+	}
 }
 </script>
-
-<template>
-	<a href="/">Accueil</a> 
-</template>
 
 <style>
 	a {

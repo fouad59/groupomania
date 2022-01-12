@@ -1,51 +1,58 @@
-<script>
-import HomeLink from './components/HomeLink.vue'
-
-export default {
-	name: 'App',
-	components: {
-		HomeLink
-	}
-}
-</script>
-
-<template>
-	<div id="app">
-		<nav>
-			<HomeLink />
-			<a href="/about">À propos</a>
-			<a href="/contact">Contact</a>
-		</nav>
-		<p>Bienvenue sur notre page d'<HomeLink /></p>
-	</div>
-</template>
-<!-- 
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Footer from './components/FooterLink.vue'
 
 export default {
-  name: 'App',
+  name:"App",
   components: {
-    HelloWorld
+    Footer
   }
 }
 </script>
 
 <style>
+.log {
+  display: flex;
+}
+
+h1 {
+  color: red;
+}
+
+body {
+  background-color: #adadad;
+  background-image: url(assets/logo.png);
+  background-position:50% -20%;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
--->

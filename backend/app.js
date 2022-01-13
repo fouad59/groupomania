@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
-
+const bodyParser = require('body-parser');
 const contenusRoutes = require('./routes/contenus');
 const userRoutes = require('./routes/user');
 const { dirname } = require('path');
@@ -16,9 +16,8 @@ app.use((req, res, next) => {
 });
 
 //---intercepte toutes les requêtes qui contiennent du JSON pour le mettre à disposition sur l'objet requête dans req.body
-// remplace body parser
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json());
 
 //app.use('/images', express.static(path.join(__dirname, 'images')));
 

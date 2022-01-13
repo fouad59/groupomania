@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
+    <h1>Groupomania</h1>
     <router-view/>
     <Footer/>
   </div>
@@ -25,14 +26,15 @@ export default {
   display: flex;
 }
 
-h1 {
-  color: red;
-}
-
 body {
   background-color: #adadad;
   background-image: url(assets/logo.png);
   background-position:50% -20%;
+}
+
+#home {
+  display: flex;
+  justify-content: space-around;
 }
 
 #app {

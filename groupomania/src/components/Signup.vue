@@ -63,8 +63,9 @@
             'Content-Type': 'application/json'
         },
         method: 'POST',
-        body: user
-        })
+        body: JSON.stringify({ user })
+        }).then(response => response.JSON())
+        .catch(error => alert("Erreur : " + error));
       },
     },
   }

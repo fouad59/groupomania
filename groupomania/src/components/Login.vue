@@ -4,7 +4,6 @@
     v-model="valid"
     lazy-validation
   >
-
     <v-text-field
       v-model="email"
       :rules="emailRules"

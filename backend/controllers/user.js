@@ -10,46 +10,29 @@ let auth = require('../middleware/auth');
 module.exports = {
 
     // signup pour accéder en tant que nouvel utilisateur
-    signup: function(req, res, next) {
+    signup: function (req, res, next) {
 
         let email = req.body.email;
         let username = req.body.username;
         let password = req.body.password;
-        let bio = req.body.bio;
-        
-        if ( email == null || password == null) {
-            return res.status(400).json({ error: 'champ non renseigné !' });
-        }
+        let bio = 'bio';
 
-        models.User.findOne({
-            where : { email }
-        })
-        .then(foundUser => {
-            if(!foundUser) {
-                
-                bcrypt.hash(password, 10) 
-                .then ( bcrypted => {
-                
-                    let newUser = models.User.create ({
-                        email: email,
-                        username: username,
-                        password: bcrypted,
-                        bio: bio,
-                        isAdmin: 0
-                    })
-                    return newUser;
+        bcrypt.hash(password, 10)
+            .then(bcrypted => {
+                let newUser = models.User.create({
+                    email: email,
+                    username: username,
+                    password: bcrypted,
+                    bio: bio,
+                    isAdmin: 0
                 })
-                .then( newUser => 
-                    {console.log(newUser)
-                    res.status(201).json({'userId': newUser.id })}
-                )
-                .catch(error => res.status(500).json({ error }));
-
-            }else {
-                return res.status(401).json({ error: 'utilisateur existant !' });
-            }
-        })
-        .catch(error => res.status(500).json({ error }));
+                return newUser;
+            })
+            .then(newUser => {
+                console.log(newUser)
+                res.status(201).json({ 'userId': newUser.id })
+            })
+            .catch(error => res.status(500).json({ error }));
     },
 
     // login pour accéder en tant qu'utilisateur existant

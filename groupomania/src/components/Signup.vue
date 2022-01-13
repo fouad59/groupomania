@@ -57,7 +57,7 @@
     methods: {
       validate () {
         let user = {email: this.email, password: this.password, username: this.username}
-        fetch("http://localhost:8080/api/users/Signup", {
+        fetch("http://localhost:8080/api/users/signup", {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

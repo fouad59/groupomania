@@ -4,16 +4,18 @@
     v-model="valid"
     lazy-validation
   >
+    <h3>
+      S'inscrire
+    </h3>
+
     <v-text-field
       v-model="username"
-      :rules="nameRules"
       label="Name"
       required
     ></v-text-field>
 
     <v-text-field
       v-model="email"
-      :rules="emailRules"
       label="E-mail"
       required
     ></v-text-field>
@@ -23,6 +25,12 @@
       label="Mot de passe"
       required
     ></v-text-field>
+
+    <v-text-field
+      v-model="bio"
+      label="bio"
+    ></v-text-field>
+
 
     <v-btn
       :disabled="!valid"
@@ -51,21 +59,21 @@
             passwordRules: [
                 v => !!v || 'password is required',
             ],
+            bio: '',
         }
     },
 
     methods: {
       validate () {
-        let user = {email: this.email, password: this.password, username: this.username}
-        fetch("http://localhost:8080/api/users/signup", {
+        let utilisateur = {email: this.email, password: this.password, username: this.username}
+        fetch("http://localhost:8080/api/users/Signup", {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         method: 'POST',
-        body: JSON.stringify({ user })
-        }).then(response => response.JSON())
-        .catch(error => alert("Erreur : " + error));
+        body: utilisateur
+        })
       },
     },
   }

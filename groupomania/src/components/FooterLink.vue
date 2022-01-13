@@ -3,12 +3,12 @@
     dark
     padless
     position: fixed
-  >
+   >
     <v-card
       class="flex"
       flat
       tile
-    >
+     >
       <v-card-title class="teal">
         <strong class="subheading">Bienvenue dans votre réseau social d'entreprise!</strong>
 

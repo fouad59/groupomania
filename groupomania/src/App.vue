@@ -6,19 +6,27 @@
     </div>
     <h1>Groupomania</h1>
     <router-view/>
+    <div id="start">
+      <Login/>
+      <Signup/>
+    </div>
     <Footer/>
   </div>
 </template>
 
 <script>
-import Footer from './components/FooterLink.vue'
+  import Footer from './components/FooterLink'
+  import Signup from './components/Signup'
+  import Login from './components/Login'
 
-export default {
-  name:"App",
-  components: {
-    Footer
+  export default {
+    name:"App",
+    components: {
+      Login,
+      Signup,
+      Footer
+    }
   }
-}
 </script>
 
 <style>
@@ -32,17 +40,17 @@ body {
   background-position:50% -20%;
 }
 
-#home {
-  display: flex;
-  justify-content: space-around;
-}
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#start {
+  display: flex;
+  justify-content: space-around;
 }
 
 #nav {

@@ -4,6 +4,10 @@
     v-model="valid"
     lazy-validation
   >
+    <h3>
+      Se connecter
+    </h3>
+    
     <v-text-field
       v-model="email"
       :rules="emailRules"
@@ -35,7 +39,6 @@
             email: '',
             emailRules: [
                 v => !!v || 'E-mail is required',
-                v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
             ],
             password: '',
             passwordRules: [

@@ -6,7 +6,7 @@ const auth = require('../middleware/auth')
 const password = require('../middleware/password')
 
 
-router.post('/signup', password, userCtrl.signup);
-router.post('/login', userCtrl.login);
+router.post('/Signup', password, userCtrl.Signup);
+router.post('/Login', userCtrl.Login);
 
 module.exports = router;

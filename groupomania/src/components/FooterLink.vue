@@ -2,7 +2,6 @@
   <v-footer
     dark
     padless
-    position: fixed
    >
     <v-card
       class="flex"

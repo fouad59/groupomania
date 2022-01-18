@@ -10,12 +10,16 @@ let auth = require('../middleware/auth');
 module.exports = {
 
     // signup pour accéder en tant que nouvel utilisateur
-    signup: function (req, res, next) {
+    Signup: function (req, res, next) {
 
         let email = req.body.email;
         let username = req.body.username;
         let password = req.body.password;
         let bio = 'bio';
+
+        if ( email == null || username == null || password == null) {
+            return res.status(400).json({ error: 'champ non renseigné !' });
+        }
 
         bcrypt.hash(password, 10)
             .then(bcrypted => {
@@ -36,7 +40,7 @@ module.exports = {
     },
 
     // login pour accéder en tant qu'utilisateur existant
-    login: function (req, res, next) {
+    Login: function (req, res, next) {
 
         let email = req.body.email;
         let password = req.body.password;

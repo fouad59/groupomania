@@ -4,22 +4,18 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <h1>Groupomania</h1>
-    <div id="start">
-      <Signup/>
-    </div>
+    <h1><img src="./assets/icon.png"> Groupomania SN</h1>
+    <router-view></router-view>
     <Footer/>
   </div>
 </template>
 
 <script>
   import Footer from './components/FooterLink'
-  import Signup from './components/Signup'
 
   export default {
     name:"App",
     components: {
-      Signup,
       Footer
     }
   }
@@ -29,10 +25,16 @@
   h1 {
     font-size: xxx-large;
     margin: 1em;
+    color: white;
   }
 
   h3{
     font-size: 1.9em;
+  }
+
+  img {
+    width: 1.2em;
+    margin-bottom: -0.4em;
   }
 
   form {
@@ -55,9 +57,10 @@
   }
 
   body {
-    background-color: #adadad;
+    background-color: #aeaeae;
     background-image: url(assets/logo.png);
-    background-position:50% -20%;
+    background-position:50% 50%;
+    background-repeat: repeat-x;
   }
 
   #app {
@@ -83,7 +86,7 @@
 
   #nav a {
     font-weight: bold;
-    color: #2c3e50;
+    color: white;
   }
 
   span{
@@ -100,4 +103,15 @@
     opacity: 75%;
     margin-top: 6em;
   }
+
+  #nav {
+    opacity: 75%;
+    background-color: #233654 !important;
+  }
+
+  .bgColor {
+    background-color: #233654 !important;
+    color: white !important;
+  }
+
 </style>

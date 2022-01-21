@@ -1,10 +1,9 @@
 <template>
   <v-footer
-    dark
     padless
    >
     <v-card
-      class="flex"
+      class="flex bgColor"
       flat
       tile
      >
@@ -16,7 +15,7 @@
         <v-btn
           v-for="icon in icons"
           :key="icon"
-          class="mx-4"
+          class="mx-4 bgColor"
           icon
         >
           <v-icon size="24px">
@@ -25,7 +24,7 @@
         </v-btn>
       </v-card-title>
 
-      <v-card-text class="py-2 white--text text-center">
+      <v-card-text class="py-2 bgColor text-center">
         {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
       </v-card-text>
     </v-card>

@@ -5,7 +5,7 @@
   lazy-validation
   >
     <h3 v-if="mode == 'signup'">
-      S'inscrire
+      Créer un compte
     </h3>
 
     <h3 v-else>
@@ -22,13 +22,21 @@
 
     <v-text-field
       v-model="username"
+      :rules="nameRules"
       label="Nom"
       required
       v-if="mode=='signup'"
     ></v-text-field>
 
     <v-text-field
+      v-model="bio"
+      label="prénom"
+      v-if="mode=='signup'"
+    ></v-text-field>
+
+    <v-text-field
       v-model="email"
+      :rules="emailRules"
       label="E-mail"
       required
     ></v-text-field>
@@ -36,13 +44,18 @@
     <v-text-field
       v-model="password"
       label="Mot de passe"
+      :rules="passwordRules"
+      type="password" 
       required
     ></v-text-field>
 
-    <v-text-field
-      v-model="bio"
-      label="bio"
-      v-if="mode=='signup'"
+    <v-text-field 
+    label="Confirmation du mot de passe" 
+    v-model="confirmPassword" 
+    :rules="[confirmPasswordRules,passwordConfirmationRule]"
+    type="password" 
+    required
+    v-if=" mode == 'signup'"
     ></v-text-field>
 
     <p>
@@ -50,7 +63,7 @@
         class="mr-4"
         :disabled = !requiredFields
         @click="create"
-        v-if="mode == 'signup'"
+        v-if=" mode == 'signup'"
       >
         Enregistrement
       </v-btn>
@@ -76,13 +89,27 @@
         mode:"signup",
         valid: true,
         username: '',
+        nameRules: [
+        v => !!v || 'Name is required',
+        v => v.length <= 10 || 'Name must be less than 20 characters',
+        ],
         email: '',
+        emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid',
+        ],
         password: '',
+        confirmPassword: "",
+        passwordRules: [v => !!v || "Password is required"],
+        confirmPasswordRules: [v => !!v || "Password is required"],
         bio: '',
       }
     },
 
     computed: {
+      passwordConfirmationRule() {
+        return () => (this.password === this.confirmPassword) || 'Password must match'
+      },
       requiredFields() {
         if (this.mode == 'signup') {
           if (this.email != "" && this.username != "" && this.password != "") {

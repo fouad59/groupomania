@@ -1,25 +1,8 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <h1><img src="./assets/icon.png"> Groupomania SN</h1>
     <router-view></router-view>
-    <Footer/>
   </div>
 </template>
-
-<script>
-  import Footer from './components/FooterLink'
-
-  export default {
-    name:"App",
-    components: {
-      Footer
-    }
-  }
-</script>
 
 <style>
   h1 {
@@ -39,10 +22,10 @@
 
   form {
     width: 80%;
-    background-color: white;
-    opacity: 80%;
+    background-color: #ffffffb8;
     border-radius: 0.6em;
     padding: 2em;
+    margin: auto;
   }
 
   .mr-4 {
@@ -57,7 +40,7 @@
   }
 
   body {
-    background-color: #aeaeae;
+    background-color: #aeaeaeef;
     background-image: url(assets/logo.png);
     background-position:50% 50%;
     background-repeat: repeat-x;
@@ -72,7 +55,6 @@
   }
 
   #start {
-    display: flex;
     justify-content: space-around;
     font-size: 1.2em;
     font-weight: 500;
@@ -82,6 +64,7 @@
   #nav {
     font-size: 1.2em;
     padding: 30px;
+    background-color: #233654b8 !important;
   }
 
   #nav a {
@@ -99,18 +82,7 @@
     color: #d1515a;
   }
 
-  footer {
-    opacity: 75%;
-    margin-top: 6em;
-  }
-
-  #nav {
-    opacity: 75%;
-    background-color: #233654 !important;
-  }
-
   .bgColor {
-    background-color: #233654 !important;
     color: white !important;
   }
 

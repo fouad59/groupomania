@@ -112,7 +112,7 @@
       },
       requiredFields() {
         if (this.mode == 'signup') {
-          if (this.email != "" && this.username != "" && this.password != "") {
+          if (this.email != "" && this.username != "" && this.password != "" && this.confirmPassword != "") {
             return true;
           } else {
             return false;
@@ -143,7 +143,14 @@
         },
         method: 'POST',
         body: JSON.stringify(user)
-        })
+        }).then(response => {
+          if (response.ok) {
+            this.$router.push('/wall')
+          }
+          console.log(response)
+        }).catch(error => {
+          console.log(error)
+        });
       },
 
       create () {
@@ -156,6 +163,9 @@
         method: 'POST',
         body: JSON.stringify(user)
         }).then(response => {
+          if (response.ok) {
+            this.$router.push('/wall')
+          }
           console.log(response)
         }).catch(error => {
           console.log(error)

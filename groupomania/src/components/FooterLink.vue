@@ -43,3 +43,12 @@
     }),
   }
 </script>
+
+<style scoped>
+  .theme--light.v-card{
+    background-color: #233654b8 !important;
+  }
+  .theme--light.v-sheet{
+    background-color: transparent;
+  }
+</style>
